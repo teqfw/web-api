@@ -5,5 +5,20 @@
       "path": "./src"
     }
   },
-  "@teqfw/web-api": {}
+  "@teqfw/web": {
+    "handlers": {
+      "TeqFw_Web_Api_Back_Mod_Server_Handler": {
+        "before": ["TeqFw_Web_Back_App_Server_Handler_Static"],
+        "spaces": ["api"]
+      }
+    }
+  },
+  "@teqfw/web-api": {
+    "services": [
+      "TeqFw_Web_Api_Back_WAPI_Alive",
+      "TeqFw_Web_Api_Back_WAPI_Load_Config",
+      "TeqFw_Web_Api_Back_WAPI_Load_FilesToCache",
+      "TeqFw_Web_Api_Back_WAPI_Load_Namespaces"
+    ]
+  }
 }

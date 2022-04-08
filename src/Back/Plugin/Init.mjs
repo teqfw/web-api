@@ -1,21 +1,24 @@
 /**
  * Plugin initialization function.
+ * @namespace TeqFw_Web_Api_Back_Plugin_Init
  */
 // MODULE'S VARS
 const NS = 'TeqFw_Web_Api_Back_Plugin_Init';
 
-export default function Factory(spec) {
+export default function (spec) {
     // EXTRACT DEPS
-    /** @type {TeqFw_Core_Shared_Logger} */
-    const logger = spec['TeqFw_Core_Shared_Logger$'];
+    /** @type {TeqFw_Core_Shared_Api_ILogger} */
+    const logger = spec['TeqFw_Core_Shared_Api_ILogger$$']; // instance
 
-    // DEFINE INNER FUNCTIONS
+    // FUNCS
+    /**
+     * @return {Promise<void>}
+     * @memberOf TeqFw_Web_Api_Back_Plugin_Init
+     */
     async function action() { }
 
-    // MAIN FUNCTIONALITY
-    Object.defineProperty(action, 'name', {value: `${NS}.${action.name}`});
+    // MAIN
+    logger.setNamespace(NS);
+    Object.defineProperty(action, 'namespace', {value: NS});
     return action;
 }
-
-// finalize code components for this es6-module
-Object.defineProperty(Factory, 'name', {value: `${NS}.${Factory.name}`});
