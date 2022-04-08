@@ -2,7 +2,7 @@
  * Plugin initialization function.
  */
 // MODULE'S VARS
-const NS = 'TeqFw_Plugin_Back_Plugin_Init';
+const NS = 'TeqFw_Web_Api_Back_Plugin_Init';
 
 export default function Factory(spec) {
     // EXTRACT DEPS

@@ -1,8 +1,9 @@
 {
   "@teqfw/di": {
     "autoload": {
-      "ns": "TeqFw_Plugin",
+      "ns": "TeqFw_Web_Api",
       "path": "./src"
     }
-  }
+  },
+  "@teqfw/web-api": {}
 }

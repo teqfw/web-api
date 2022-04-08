@@ -24,7 +24,7 @@ module.exports = {
     'rules': {
         'camelcase': [
             'warn',
-            {'properties': 'never', ignoreDestructuring: true, allow: ['^TeqFw_Plugin_']}
+            {'properties': 'never', ignoreDestructuring: true, allow: ['^TeqFw_Web_Api_']}
         ],
         'indent': [
             'error',
