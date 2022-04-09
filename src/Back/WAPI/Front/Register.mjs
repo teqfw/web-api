@@ -26,7 +26,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Front_Register {
         this.getService = function () {
             // FUNCS
             /**
-             * @param {TeqFw_Web_Back_App_Server_Handler_WAPI_Context} context
+             * @param {TeqFw_Web_Api_Back_Mod_Request_Context} context
              */
             async function service(context) {
                 /** @type {TeqFw_Web_Api_Shared_WAPI_Front_Register.Request} */

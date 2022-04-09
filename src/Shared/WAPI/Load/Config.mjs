@@ -31,19 +31,19 @@ export default class TeqFw_Web_Api_Shared_WAPI_Load_Config {
         // INSTANCE METHODS
 
         /**
-         * @param {Request|null} data
+         * @param {Request} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Load_Config.Request}
          */
-        this.createReq = function (data = null) {
+        this.createReq = function (data) {
             return new Request();
         }
 
         /**
          * This response contains unstructured data.
-         * @param {Response|null} data
+         * @param {Response} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Load_Config.Response}
          */
-        this.createRes = function (data = null) {
+        this.createRes = function (data) {
             return Object.assign(new Response(), data);
         }
 

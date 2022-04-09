@@ -40,10 +40,10 @@ export default class TeqFw_Web_Api_Shared_WAPI_Front_Register {
 
         // INSTANCE METHODS
         /**
-         * @param {Request|null} data
+         * @param {Request} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Front_Register.Request}
          */
-        this.createReq = function (data = null) {
+        this.createReq = function (data) {
             const res = new Request();
             res.publicKey = castString(data?.publicKey);
             res.uuid = castString(data?.uuid);
@@ -51,10 +51,10 @@ export default class TeqFw_Web_Api_Shared_WAPI_Front_Register {
         }
 
         /**
-         * @param {Response|null} data
+         * @param {Response} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Front_Register.Response}
          */
-        this.createRes = function (data = null) {
+        this.createRes = function (data) {
             const res = new Response();
             res.frontId = castInt(data?.frontId);
             return res;

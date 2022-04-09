@@ -21,15 +21,15 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_Namespaces {
         const registry = spec['TeqFw_Core_Back_App_Init_Plugin_Registry$'];
         /** @type {TeqFw_Web_Api_Shared_WAPI_Load_Namespaces} */
         const endpoint = spec['TeqFw_Web_Api_Shared_WAPI_Load_Namespaces$'];
-        /** @type {TeqFw_Web_Shared_Dto_Namespace_Item.Factory} */
-        const fItem = spec['TeqFw_Web_Shared_Dto_Namespace_Item#Factory$'];
-        /** @type {TeqFw_Web_Shared_Dto_Namespace_Replace.Factory} */
-        const fReplace = spec['TeqFw_Web_Shared_Dto_Namespace_Replace#Factory$'];
+        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Item.Factory} */
+        const fItem = spec['TeqFw_Web_Api_Shared_Dto_Namespace_Item#Factory$'];
+        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Replace.Factory} */
+        const fReplace = spec['TeqFw_Web_Api_Shared_Dto_Namespace_Replace#Factory$'];
 
         // DEFINE WORKING VARS / PROPS
-        /** @type {TeqFw_Web_Shared_Dto_Namespace_Item[]} */
+        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Item[]} */
         const namespaces = getNamespaces(registry); // cache for DI namespaces
-        /** @type {TeqFw_Web_Shared_Dto_Namespace_Replace[]} */
+        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Replace[]} */
         const replaces = getReplaces(registry); // cache for frontend replaces for DI
 
         // FUNCS
@@ -39,7 +39,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_Namespaces {
          * (@see TeqFw_Web_Back_App_Server_Handler_Static)
          *
          * @param {TeqFw_Core_Back_App_Init_Plugin_Registry} registry
-         * @return {TeqFw_Web_Shared_Dto_Namespace_Item[]}
+         * @return {TeqFw_Web_Api_Shared_Dto_Namespace_Item[]}
          */
         function getNamespaces(registry) {
             const result = [];
@@ -60,7 +60,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_Namespaces {
          * Loop through all plugins and compose replaces for DI container on the front.
          *
          * @param {TeqFw_Core_Back_App_Init_Plugin_Registry} registry
-         * @return {TeqFw_Web_Shared_Dto_Namespace_Replace[]}
+         * @return {TeqFw_Web_Api_Shared_Dto_Namespace_Replace[]}
          */
         function getReplaces(registry) {
             const result = [];

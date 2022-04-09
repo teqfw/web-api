@@ -37,7 +37,7 @@ export default class TeqFw_Web_Api_Shared_WAPI_Alive {
         // INSTANCE METHODS
 
         /**
-         * @param {Request|null} [data]
+         * @param {Request} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Alive.Request}
          */
         this.createReq = function (data) {
@@ -46,7 +46,7 @@ export default class TeqFw_Web_Api_Shared_WAPI_Alive {
         }
 
         /**
-         * @param {Response|null} [data]
+         * @param {Response} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Alive.Response}
          */
         this.createRes = function (data) {

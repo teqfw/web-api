@@ -16,9 +16,9 @@ class Request {}
  * @memberOf TeqFw_Web_Api_Shared_WAPI_Load_Namespaces
  */
 class Response {
-    /** @type {TeqFw_Web_Shared_Dto_Namespace_Item[]} */
+    /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Item[]} */
     items;
-    /** @type {TeqFw_Web_Shared_Dto_Namespace_Replace[]} */
+    /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Replace[]} */
     replaces;
 }
 
@@ -28,29 +28,29 @@ class Response {
 export default class TeqFw_Web_Api_Shared_WAPI_Load_Namespaces {
     constructor(spec) {
         // DEPS
-        /** @type {TeqFw_Web_Shared_Defaults} */
-        const DEF = spec['TeqFw_Web_Shared_Defaults$'];
+        /** @type {TeqFw_Web_Api_Shared_Defaults} */
+        const DEF = spec['TeqFw_Web_Api_Shared_Defaults$'];
         /** @type {TeqFw_Core_Shared_Util_Cast.castArrayOfObj|function} */
         const castArrayOfObj = spec['TeqFw_Core_Shared_Util_Cast#castArrayOfObj'];
-        /** @type {TeqFw_Web_Shared_Dto_Namespace_Item.Factory} */
-        const fItem = spec['TeqFw_Web_Shared_Dto_Namespace_Item#Factory$'];
-        /** @type {TeqFw_Web_Shared_Dto_Namespace_Replace.Factory} */
-        const fReplace = spec['TeqFw_Web_Shared_Dto_Namespace_Replace#Factory$'];
+        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Item.Factory} */
+        const fItem = spec['TeqFw_Web_Api_Shared_Dto_Namespace_Item#Factory$'];
+        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Replace.Factory} */
+        const fReplace = spec['TeqFw_Web_Api_Shared_Dto_Namespace_Replace#Factory$'];
 
         // DEFINE INSTANCE METHODS
         /**
-         * @param {Request|null} data
+         * @param {Request|null} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Load_Namespaces.Request}
          */
-        this.createReq = function (data = null) {
+        this.createReq = function (data) {
             return new Request();
         }
 
         /**
-         * @param {Response|null} data
+         * @param {Response|null} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Load_Namespaces.Response}
          */
-        this.createRes = function (data = null) {
+        this.createRes = function (data) {
             const res = new Response();
             res.items = castArrayOfObj(data?.items, fItem.create);
             res.replaces = castArrayOfObj(data?.replaces, fReplace.create);

@@ -41,20 +41,20 @@ export default class TeqFw_Web_Api_Shared_WAPI_Load_FilesToCache {
 
         // DEFINE INSTANCE METHODS
         /**
-         * @param {Request|Object|null} data
+         * @param {Request} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Load_FilesToCache.Request}
          */
-        this.createReq = function (data = null) {
+        this.createReq = function (data) {
             const res = new Request();
             res.door = castString(data?.door);
             return res;
         }
 
         /**
-         * @param {Response|null} data
+         * @param {Response} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Load_FilesToCache.Response}
          */
-        this.createRes = function (data = null) {
+        this.createRes = function (data) {
             const res = new Response();
             res.items = castArrayOfStr(data?.items);
             return res;

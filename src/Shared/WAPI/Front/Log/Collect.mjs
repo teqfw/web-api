@@ -38,20 +38,20 @@ export default class TeqFw_Web_Api_Shared_WAPI_Front_Log_Collect {
 
         // INSTANCE METHODS
         /**
-         * @param {Request|null} data
+         * @param {Request} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Front_Log_Collect.Request}
          */
-        this.createReq = function (data = null) {
+        this.createReq = function (data) {
             const res = new Request();
             res.item = dtoLog.createDto(data?.item);
             return res;
         }
 
         /**
-         * @param {Response|null} data
+         * @param {Response} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Front_Log_Collect.Response}
          */
-        this.createRes = function (data = null) {
+        this.createRes = function (data) {
             const res = new Response();
             res.success = castBoolean(data?.success);
             return res;
