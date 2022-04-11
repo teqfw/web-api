@@ -17,7 +17,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Alive {
         /** @type {TeqFw_Web_Api_Shared_WAPI_Alive} */
         const endpoint = spec['TeqFw_Web_Api_Shared_WAPI_Alive$'];
 
-        // DEFINE INSTANCE METHODS
+        // INSTANCE METHODS
         this.getEndpoint = () => endpoint;
 
         this.getService = function () {

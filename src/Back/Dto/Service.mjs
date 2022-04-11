@@ -10,6 +10,8 @@ const NS = 'TeqFw_Web_Api_Back_Dto_Service';
  */
 class Dto {
     static namespace = NS;
+    /** @type {TeqFw_Web_Api_Shared_Api_IEndpoint} */
+    endpoint;
     /**
      * Parameters names for the route ('/post/:postId/comment/:commentId' => ['postId', 'commentId'])
      * @type {string[]}
@@ -25,13 +27,6 @@ class Dto {
      * @type {string}
      */
     route;
-    /**
-     * @type {TeqFw_Web_Shared_Api_WAPI_IRoute}
-     * @deprecated
-     */
-    routeFactory;
-    /** @type {TeqFw_Web_Api_Shared_Api_IEndpoint} */
-    endpoint;
     /** @type {function(TeqFw_Web_Api_Back_Mod_Request_Context): Promise<void>} */
     service;
 }

@@ -18,7 +18,7 @@ export default class TeqFw_Web_Api_Back_Mod_Request_Context {
      */
     constructor(req, params, share, inStruct, outStruct) {
 
-        // DEFINE WORKING VARS / PROPS
+        // VARS
         /** @type {module:http.IncomingMessage|module:http2.Http2ServerRequest} */
         const httpRequest = req;
         /** @type {TeqFw_Core_Shared_Mod_Map} */
@@ -32,7 +32,7 @@ export default class TeqFw_Web_Api_Back_Mod_Request_Context {
         /** @type {Object<string, string>} */
         const routeParams = params;
 
-        // DEFINE INSTANCE METHODS
+        // INSTANCE METHODS
 
         /**
          * Get objects registry that is shared between all handlers.

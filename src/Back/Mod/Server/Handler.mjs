@@ -152,9 +152,9 @@ export default class TeqFw_Web_Api_Back_Mod_Server_Handler {
             }
         }
 
-        this.requestIsMine = function ({method, address} = {}) {
+        this.canProcess = function ({method, address} = {}) {
             return (
-                (method === HTTP2_METHOD_GET) || (method === HTTP2_METHOD_POST)
+                ((method === HTTP2_METHOD_GET) || (method === HTTP2_METHOD_POST))
                 && (address?.space === DEF.SHARED.SPACE_API)
             );
         }

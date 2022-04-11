@@ -16,14 +16,15 @@ class Request {}
  * @memberOf TeqFw_Web_Api_Shared_WAPI_Load_Namespaces
  */
 class Response {
-    /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Item[]} */
+    /** @type {TeqFw_Web_Shared_Dto_Config_Di_Namespace[]} */
     items;
-    /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Replace[]} */
+    /** @type {TeqFw_Web_Shared_Dto_Config_Di_Replacement[]} */
     replaces;
 }
 
 /**
  * @implements TeqFw_Web_Api_Shared_Api_IEndpoint
+ * @deprecated use TeqFw_Web_Back_App_Server_Handler_Config
  */
 export default class TeqFw_Web_Api_Shared_WAPI_Load_Namespaces {
     constructor(spec) {
@@ -32,12 +33,12 @@ export default class TeqFw_Web_Api_Shared_WAPI_Load_Namespaces {
         const DEF = spec['TeqFw_Web_Api_Shared_Defaults$'];
         /** @type {TeqFw_Core_Shared_Util_Cast.castArrayOfObj|function} */
         const castArrayOfObj = spec['TeqFw_Core_Shared_Util_Cast#castArrayOfObj'];
-        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Item.Factory} */
-        const fItem = spec['TeqFw_Web_Api_Shared_Dto_Namespace_Item#Factory$'];
-        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Replace.Factory} */
-        const fReplace = spec['TeqFw_Web_Api_Shared_Dto_Namespace_Replace#Factory$'];
+        /** @type {TeqFw_Web_Shared_Dto_Config_Di_Namespace} */
+        const fItem = spec['TeqFw_Web_Shared_Dto_Config_Di_Namespace$'];
+        /** @type {TeqFw_Web_Shared_Dto_Config_Di_Replacement} */
+        const fReplace = spec['TeqFw_Web_Shared_Dto_Config_Di_Replacement$'];
 
-        // DEFINE INSTANCE METHODS
+        // INSTANCE METHODS
         /**
          * @param {Request|null} [data]
          * @return {TeqFw_Web_Api_Shared_WAPI_Load_Namespaces.Request}
@@ -52,8 +53,8 @@ export default class TeqFw_Web_Api_Shared_WAPI_Load_Namespaces {
          */
         this.createRes = function (data) {
             const res = new Response();
-            res.items = castArrayOfObj(data?.items, fItem.create);
-            res.replaces = castArrayOfObj(data?.replaces, fReplace.create);
+            res.items = castArrayOfObj(data?.items, fItem.createDto);
+            res.replaces = castArrayOfObj(data?.replaces, fReplace.createDto);
             return res;
         }
 

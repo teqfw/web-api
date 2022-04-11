@@ -20,7 +20,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Front_Register {
         /** @type {TeqFw_Web_Back_Act_Front_Create.act|function} */
         const actCreate = spec['TeqFw_Web_Back_Act_Front_Create$'];
 
-        // DEFINE INSTANCE METHODS
+        // INSTANCE METHODS
         this.getEndpoint = () => endpoint;
 
         this.getService = function () {

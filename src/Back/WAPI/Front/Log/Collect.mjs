@@ -23,7 +23,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Front_Log_Collect {
         /** @type {typeof TeqFw_Web_Shared_Enum_Log_Type} */
         const TYPE = spec['TeqFw_Web_Shared_Enum_Log_Type$'];
 
-        // DEFINE INSTANCE METHODS
+        // INSTANCE METHODS
 
         this.getEndpoint = () => endpoint;
 

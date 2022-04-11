@@ -11,6 +11,7 @@ const NS = 'TeqFw_Web_Api_Back_WAPI_Load_Namespaces';
 
 /**
  * @implements TeqFw_Web_Api_Back_Api_Factory_IService
+ * @deprecated use TeqFw_Web_Back_App_Server_Handler_Config
  */
 export default class TeqFw_Web_Api_Back_WAPI_Load_Namespaces {
     constructor(spec) {
@@ -21,15 +22,15 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_Namespaces {
         const registry = spec['TeqFw_Core_Back_App_Init_Plugin_Registry$'];
         /** @type {TeqFw_Web_Api_Shared_WAPI_Load_Namespaces} */
         const endpoint = spec['TeqFw_Web_Api_Shared_WAPI_Load_Namespaces$'];
-        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Item.Factory} */
-        const fItem = spec['TeqFw_Web_Api_Shared_Dto_Namespace_Item#Factory$'];
-        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Replace.Factory} */
-        const fReplace = spec['TeqFw_Web_Api_Shared_Dto_Namespace_Replace#Factory$'];
+        /** @type {TeqFw_Web_Shared_Dto_Config_Di_Namespace} */
+        const fItem = spec['TeqFw_Web_Shared_Dto_Config_Di_Namespace$'];
+        /** @type {TeqFw_Web_Shared_Dto_Config_Di_Replacement} */
+        const fReplace = spec['TeqFw_Web_Shared_Dto_Config_Di_Replacement$'];
 
-        // DEFINE WORKING VARS / PROPS
-        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Item[]} */
+        // VARS
+        /** @type {TeqFw_Web_Shared_Dto_Config_Di_Namespace[]} */
         const namespaces = getNamespaces(registry); // cache for DI namespaces
-        /** @type {TeqFw_Web_Api_Shared_Dto_Namespace_Replace[]} */
+        /** @type {TeqFw_Web_Shared_Dto_Config_Di_Replacement[]} */
         const replaces = getReplaces(registry); // cache for frontend replaces for DI
 
         // FUNCS
@@ -39,7 +40,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_Namespaces {
          * (@see TeqFw_Web_Back_App_Server_Handler_Static)
          *
          * @param {TeqFw_Core_Back_App_Init_Plugin_Registry} registry
-         * @return {TeqFw_Web_Api_Shared_Dto_Namespace_Item[]}
+         * @return {TeqFw_Web_Shared_Dto_Config_Di_Namespace[]}
          */
         function getNamespaces(registry) {
             const result = [];
@@ -47,7 +48,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_Namespaces {
             for (const one of plugins) {
                 /** @type {TeqFw_Di_Back_Api_Dto_Plugin_Desc} */
                 const desc = one.teqfw[DEF.MOD_WEB.MOD_DI.NAME];
-                const item = fItem.create();
+                const item = fItem.createDto();
                 item.ext = desc.autoload.ext;
                 item.ns = desc.autoload.ns;
                 item.path = $path.join('/', DEF.MOD_WEB.SHARED.SPACE_SRC, one.name);
@@ -60,7 +61,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_Namespaces {
          * Loop through all plugins and compose replaces for DI container on the front.
          *
          * @param {TeqFw_Core_Back_App_Init_Plugin_Registry} registry
-         * @return {TeqFw_Web_Api_Shared_Dto_Namespace_Replace[]}
+         * @return {TeqFw_Web_Shared_Dto_Config_Di_Replacement[]}
          */
         function getReplaces(registry) {
             const result = [];
@@ -92,7 +93,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_Namespaces {
             }
             // convert object to DTO
             for (const one of Object.keys(mapReplace)) {
-                const item = fReplace.create();
+                const item = fReplace.createDto();
                 item.orig = one;
                 item.alter = mapReplace[one];
                 result.push(item);
