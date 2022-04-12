@@ -18,8 +18,8 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_Config {
         const config = spec['TeqFw_Core_Back_Config$'];
         /** @type {TeqFw_Web_Api_Shared_WAPI_Load_Config} */
         const endpoint = spec['TeqFw_Web_Api_Shared_WAPI_Load_Config$'];
-        /** @type {TeqFw_Web_Front_Dto_Config.Factory} */
-        const factDto = spec['TeqFw_Web_Front_Dto_Config.Factory$'];
+        /** @type {TeqFw_Web_Shared_Dto_Config_Front.Factory} */
+        const factDto = spec['TeqFw_Web_Shared_Dto_Config_Front.Factory$'];
 
         // INSTANCE METHODS
 
@@ -41,7 +41,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_Config {
                 const webCfg = config.getLocal(DEF.MOD_WEB.SHARED.NAME);
                 /** @type {TeqFw_Core_Back_Api_Dto_Config_Local} */
                 const webCore = config.getLocal(DEF.MOD_WEB.MOD_CORE.SHARED.NAME);
-                /** @type {TeqFw_Web_Front_Dto_Config} */
+                /** @type {TeqFw_Web_Shared_Dto_Config_Front} */
                 const res = factDto.create();
                 if (webCfg.urlBase) res.urlBase = webCfg.urlBase;
                 if (webCfg.frontLogsMonitoring) res.frontLogsMonitoring = webCfg.frontLogsMonitoring; // 'true' only

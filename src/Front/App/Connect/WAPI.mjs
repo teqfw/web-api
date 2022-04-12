@@ -9,12 +9,12 @@ export default class TeqFw_Web_Api_Front_App_Connect_WAPI {
         // DEPS
         /** @type {TeqFw_Web_Api_Front_Defaults} */
         const DEF = spec['TeqFw_Web_Api_Front_Defaults$'];
-        /** @type {TeqFw_Web_Front_Dto_Config} */
-        const config = spec['TeqFw_Web_Front_Dto_Config$'];
         /** @type {TeqFw_Web_Front_Api_Gate_IErrorHandler} */
         const errHndl = spec['TeqFw_Web_Front_Api_Gate_IErrorHandler$'];
         /** @type {TeqFw_Web_Front_Api_Mod_Server_Connect_IState} */
         const modConn = spec['TeqFw_Web_Front_Api_Mod_Server_Connect_IState$'];
+        /** @type {TeqFw_Web_Front_Mod_Config} */
+        const modCfg = spec['TeqFw_Web_Front_Mod_Config$'];
 
         // VARS
         let BASE;
@@ -22,12 +22,13 @@ export default class TeqFw_Web_Api_Front_App_Connect_WAPI {
         // FUNCS
         function getBaseUrl() {
             if (!BASE) {
+                const cfg = modCfg.get();
                 const schema = '//';
-                const domain = config.urlBase ?? location.hostname;
+                const domain = cfg.urlBase ?? location.hostname;
                 let port = location.port; // empty string for default ports (80 & 443)
                 if (port !== '') port = `:${port}`
-                const root = (config.root) ? `/${config.root}` : '';
-                const door = (config.door) ? `/${config.door}` : '';
+                const root = (cfg.root) ? `/${cfg.root}` : '';
+                const door = (cfg.door) ? `/${cfg.door}` : '';
                 const space = `/${DEF.SHARED.SPACE_API}`;
                 BASE = `${schema}${domain}${port}${root}${door}${space}`;
             }

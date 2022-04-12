@@ -18,7 +18,6 @@
       "TeqFw_Web_Api_Back_WAPI_Alive",
       "TeqFw_Web_Api_Back_WAPI_Front_Log_Collect",
       "TeqFw_Web_Api_Back_WAPI_Front_Register",
-      "TeqFw_Web_Api_Back_WAPI_Load_Config",
       "TeqFw_Web_Api_Back_WAPI_Load_FilesToCache"
     ]
   }

@@ -38,7 +38,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Front_Log_Collect {
                 /** @type {TeqFw_Web_Api_Shared_WAPI_Front_Log_Collect.Response} */
                 const res = context.getOutData();
                 const dto = dtoLog.createDto(req.item);
-                dto.meta[DEF.SHARED.LOG_META_TYPE] = TYPE.FRONT;
+                dto.meta[DEF.MOD_WEB.SHARED.LOG_META_TYPE] = TYPE.FRONT;
                 loggerTransport.log(dto);
                 res.success = true;
             }
