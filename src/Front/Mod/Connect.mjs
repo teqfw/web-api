@@ -1,10 +1,10 @@
 /**
  * Common gateway to Web API services.
  *
- * @namespace TeqFw_Web_Api_Front_App_Connect_WAPI
+ * @namespace TeqFw_Web_Api_Front_Mod_Connect
  */
 // MODULE'S CLASSES
-export default class TeqFw_Web_Api_Front_App_Connect_WAPI {
+export default class TeqFw_Web_Api_Front_Mod_Connect {
     constructor(spec) {
         // DEPS
         /** @type {TeqFw_Web_Api_Front_Defaults} */
