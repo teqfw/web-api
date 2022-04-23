@@ -20,8 +20,8 @@ export default class TeqFw_Web_Api_Back_WAPI_Load_FilesToCache {
         const DEF = spec['TeqFw_Web_Api_Back_Defaults$'];
         /** @type {TeqFw_Core_Back_Util.scanRecursively|function} */
         const scanRecursively = spec['TeqFw_Core_Back_Util#scanRecursively'];
-        /** @type {TeqFw_Core_Back_App_Init_Plugin_Registry} */
-        const registry = spec['TeqFw_Core_Back_App_Init_Plugin_Registry$'];
+        /** @type {TeqFw_Core_Back_Mod_Init_Plugin_Registry} */
+        const registry = spec['TeqFw_Core_Back_Mod_Init_Plugin_Registry$'];
         /** @type {TeqFw_Web_Api_Shared_WAPI_Load_FilesToCache} */
         const endpoint = spec['TeqFw_Web_Api_Shared_WAPI_Load_FilesToCache$'];
 

@@ -33,8 +33,8 @@ export default class TeqFw_Web_Api_Back_Mod_Server_Handler {
         const respond400 = spec['TeqFw_Web_Back_App_Server_Respond.respond400'];
         /** @type {TeqFw_Web_Back_App_Server_Respond.respond500|function} */
         const respond500 = spec['TeqFw_Web_Back_App_Server_Respond.respond500'];
-        /** @type {TeqFw_Core_Back_App_Init_Plugin_Registry} */
-        const regPlugins = spec['TeqFw_Core_Back_App_Init_Plugin_Registry$'];
+        /** @type {TeqFw_Core_Back_Mod_Init_Plugin_Registry} */
+        const regPlugins = spec['TeqFw_Core_Back_Mod_Init_Plugin_Registry$'];
         /** @type {TeqFw_Web_Api_Back_Dto_Plugin_Desc} */
         const dtoDesc = spec['TeqFw_Web_Api_Back_Dto_Plugin_Desc$'];
         /** @type {TeqFw_Web_Api_Back_Dto_Service} */
