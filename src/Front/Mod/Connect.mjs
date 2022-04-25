@@ -12,7 +12,7 @@ export default class TeqFw_Web_Api_Front_Mod_Connect {
         /** @type {TeqFw_Web_Front_Api_Gate_IErrorHandler} */
         const errHndl = spec['TeqFw_Web_Front_Api_Gate_IErrorHandler$'];
         /** @type {TeqFw_Web_Front_Api_Mod_Server_Connect_IState} */
-        const modConn = spec['TeqFw_Web_Front_Api_Mod_Server_Connect_IState$'];
+        const modState = spec['TeqFw_Web_Front_Api_Mod_Server_Connect_IState$'];
         /** @type {TeqFw_Web_Front_Mod_Config} */
         const modCfg = spec['TeqFw_Web_Front_Mod_Config$'];
 
@@ -45,7 +45,7 @@ export default class TeqFw_Web_Api_Front_Mod_Connect {
          */
         this.send = async function (data, endpoint) {
             let result = false;
-            modConn.startActivity();
+            modState.startActivity();
             try {
                 const URL = `${getBaseUrl()}${endpoint.getRoute()}`;
                 const res = await fetch(URL, {
@@ -65,7 +65,7 @@ export default class TeqFw_Web_Api_Front_Mod_Connect {
             } catch (e) {
                 errHndl.error(e);
             } finally {
-                modConn.stopActivity();
+                modState.stopActivity();
             }
             return result;
         }
