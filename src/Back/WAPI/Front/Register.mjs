@@ -18,7 +18,7 @@ export default class TeqFw_Web_Api_Back_WAPI_Front_Register {
         /** @type {TeqFw_Db_Back_RDb_IConnect} */
         const rdb = spec['TeqFw_Db_Back_RDb_IConnect$'];
         /** @type {TeqFw_Web_Auth_Back_Act_Front_Create.act|function} */
-        const actCreate = spec['TeqFw_Web_Auth_Back_Act_Front_Create$'];
+        // const actCreate = spec['TeqFw_Web_Auth_Back_Act_Front_Create$'];
 
         // INSTANCE METHODS
         this.getEndpoint = () => endpoint;
