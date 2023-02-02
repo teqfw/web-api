@@ -7,8 +7,8 @@ const NS = 'TeqFw_Web_Api_Back_Plugin_Init';
 
 export default function (spec) {
     // EXTRACT DEPS
-    /** @type {TeqFw_Core_Shared_Api_ILogger} */
-    const logger = spec['TeqFw_Core_Shared_Api_ILogger$$']; // instance
+    /** @type {TeqFw_Core_Shared_Api_Logger} */
+    const logger = spec['TeqFw_Core_Shared_Api_Logger$$']; // instance
 
     // FUNCS
     /**

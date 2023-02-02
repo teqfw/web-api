@@ -16,8 +16,8 @@ export default class TeqFw_Web_Api_Back_WAPI_Front_Log_Collect {
         const DEF = spec['TeqFw_Web_Api_Back_Defaults$'];
         /** @type {TeqFw_Web_Api_Shared_WAPI_Front_Log_Collect} */
         const endpoint = spec['TeqFw_Web_Api_Shared_WAPI_Front_Log_Collect$'];
-        /** @type {TeqFw_Core_Shared_Api_Logger_ITransport} */
-        const loggerTransport = spec['TeqFw_Core_Shared_Api_Logger_ITransport$'];
+        /** @type {TeqFw_Core_Shared_Api_Logger_Transport} */
+        const loggerTransport = spec['TeqFw_Core_Shared_Api_Logger_Transport$'];
         /** @type {TeqFw_Core_Shared_Dto_Log} */
         const dtoLog = spec['TeqFw_Core_Shared_Dto_Log$'];
         /** @type {typeof TeqFw_Web_Shared_Enum_Log_Type} */
