@@ -4,7 +4,7 @@
  * @namespace TeqFw_Web_Api_Back_Mod_Server_Handler
  */
 // MODULE'S IMPORT
-import {constants as H2} from 'http2';
+import {constants as H2} from 'node:http2';
 import {pathToRegexp} from 'path-to-regexp';
 
 // MODULE'S VARS
@@ -78,9 +78,9 @@ export default class TeqFw_Web_Api_Back_Mod_Server_Handler {
             }
 
             // MAIN
-            /** @type {TeqFw_Core_Shared_Mod_Map} */
+            /** @type {Object} */
             const shares = res[DEF.MOD_WEB.HNDL_SHARE];
-            if (!res.headersSent && !shares.get(DEF.MOD_WEB.SHARE_RES_STATUS)) {
+            if (!res.headersSent && !shares[DEF.MOD_WEB.SHARE_RES_STATUS]) {
                 /** @type {TeqFw_Web_Back_Dto_Address} */
                 const address = mAddress.parsePath(req.url);
                 if (address?.space === DEF.SHARED.SPACE_API) {
@@ -99,13 +99,13 @@ export default class TeqFw_Web_Api_Back_Mod_Server_Handler {
                                 // compose result from outData been put into service context before service was run
                                 const outData = serviceCtx.getOutData();
                                 const json = JSON.stringify({data: outData});
-                                shares.set(DEF.MOD_WEB.SHARE_RES_BODY, json);
+                                shares[DEF.MOD_WEB.SHARE_RES_BODY] = json;
                                 // merge service out headers into response headers
                                 const headersSrv = serviceCtx.getOutHeaders();
                                 for (const key of Object.keys(headersSrv))
                                     res.setHeader(key, headersSrv[key]);
                                 res.setHeader(HTTP2_HEADER_CONTENT_TYPE, 'application/json');
-                                shares.set(DEF.MOD_WEB.SHARE_RES_STATUS, HTTP_STATUS_OK);
+                                shares[DEF.MOD_WEB.SHARE_RES_STATUS] = HTTP_STATUS_OK;
                             } catch (err) {
                                 logger.error(err);
                                 respond500(res, err?.message);

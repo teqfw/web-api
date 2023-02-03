@@ -4,7 +4,7 @@
  * @namespace TeqFw_Web_Api_Back_Mod_Request_Context
  */
 // MODULE'S IMPORT
-import {constants as H2} from 'http2';
+import {constants as H2} from 'node:http2';
 
 // MODULE'S CLASSES
 export default class TeqFw_Web_Api_Back_Mod_Request_Context {
@@ -12,7 +12,7 @@ export default class TeqFw_Web_Api_Back_Mod_Request_Context {
      * This is not DI compatible constructor. Use Factory class to create new instances.
      * @param {module:http.IncomingMessage|module:http2.Http2ServerRequest} req
      * @param {Object<string, string>} params
-     * @param {TeqFw_Core_Shared_Mod_Map} share
+     * @param {Object} share
      * @param {Object|null} inStruct
      * @param {Object} outStruct
      */
@@ -21,7 +21,7 @@ export default class TeqFw_Web_Api_Back_Mod_Request_Context {
         // VARS
         /** @type {module:http.IncomingMessage|module:http2.Http2ServerRequest} */
         const httpRequest = req;
-        /** @type {TeqFw_Core_Shared_Mod_Map} */
+        /** @type {Object} */
         const handlersShare = share;
         /** @type {Object} */
         const inData = inStruct;
@@ -36,7 +36,7 @@ export default class TeqFw_Web_Api_Back_Mod_Request_Context {
 
         /**
          * Get objects registry that is shared between all handlers.
-         * @return {TeqFw_Core_Shared_Mod_Map}
+         * @return {Object}
          */
         this.getHandlersShare = () => handlersShare;
 

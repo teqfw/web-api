@@ -31,7 +31,7 @@ export default function (spec) {
      */
     function create(req, params, endpoint) {
         const shares = req[DEF.MOD_WEB.HNDL_SHARE];
-        const json = shares.get(DEF.MOD_WEB.SHARE_REQ_BODY_JSON);
+        const json = shares[DEF.MOD_WEB.SHARE_REQ_BODY_JSON];
         const inData = (json) ? endpoint.createReq(json?.data) : null;
         const outData = endpoint.createRes();
         return new Context(req, params, shares, inData, outData);
