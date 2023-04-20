@@ -1,5 +1,6 @@
 /**
  * DTO to encapsulate service related data.
+ * @deprecated use TeqFw_Web_Api_Back_Api_Service
  */
 // MODULE'S VARS
 const NS = 'TeqFw_Web_Api_Back_Dto_Service';

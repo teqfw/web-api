@@ -33,6 +33,8 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
         const regPlugins = spec['TeqFw_Core_Back_Mod_Init_Plugin_Registry$'];
         /** @type {TeqFw_Web_Back_Mod_Address} */
         const modAddress = spec['TeqFw_Web_Back_Mod_Address$'];
+        /** @type {typeof TeqFw_Web_Api_Back_Api_Service_Context} */
+        const Context = spec['TeqFw_Web_Api_Back_Api_Service_Context#'];
 
         // MAIN
         logger.setNamespace(this.constructor.name);
@@ -71,7 +73,10 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
                         const endpoint = one.getEndpoint();
                         const apiReq = endpoint.createReq(json?.data);
                         const apiRes = endpoint.createRes();
-                        await one.process(apiReq, apiRes, {}); // TODO: add context with httpReq & httpRes
+                        const context = new Context();
+                        context.request = req;
+                        context.response = res;
+                        await one.process(apiReq, apiRes, context);
                         shares[DEF.MOD_WEB.SHARE_RES_BODY] = JSON.stringify({data: apiRes});
                         res.setHeader(HTTP2_HEADER_CONTENT_TYPE, 'application/json');
                         shares[DEF.MOD_WEB.SHARE_RES_STATUS] = HTTP_STATUS_OK;

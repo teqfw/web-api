@@ -10,5 +10,11 @@ export default class TeqFw_Web_Api_Back_Api_Service {
 
     async init();
 
+    /**
+     * Process API request
+     * @param {Object} req
+     * @param {Object} res
+     * @param {TeqFw_Web_Api_Back_Api_Service_Context} context
+     */
     async process(req, res, context);
 }
