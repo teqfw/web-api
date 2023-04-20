@@ -26,10 +26,10 @@ export default class TeqFw_Web_Api_Front_Mod_Connect {
                 const schema = '//';
                 const domain = cfg.urlBase ?? location.hostname;
                 let port = location.port; // empty string for default ports (80 & 443)
-                if (port !== '') port = `:${port}`
+                if (port !== '') port = `:${port}`;
                 const root = (cfg.root) ? `/${cfg.root}` : '';
                 const door = (cfg.door) ? `/${cfg.door}` : '';
-                const space = `/${DEF.SHARED.SPACE_API}`;
+                const space = `/${DEF.SHARED.SPACE_SERVICE}`;
                 BASE = `${schema}${domain}${port}${root}${door}${space}`;
             }
             return BASE;
@@ -40,14 +40,16 @@ export default class TeqFw_Web_Api_Front_Mod_Connect {
          * Send API service request to backend.
          *
          * @param {Object} data JS-object to be sent as request
-         * @param {TeqFw_Web_Api_Shared_Api_IEndpoint} endpoint
-         * @returns {Promise<*|boolean>}
+         * @param {TeqFw_Web_Api_Shared_Api_Endpoint} endpoint
+         * @param {Object} [opts]
+         * @returns {Promise<*>}
          */
-        this.send = async function (data, endpoint) {
+        this.send = async function (data, endpoint, opts = null) {
             let result = false;
             modState.startActivity();
             try {
-                const URL = `${getBaseUrl()}${endpoint.getRoute()}`;
+                const route = endpoint.constructor.name;
+                const URL = `${getBaseUrl()}/${route}`;
                 const res = await fetch(URL, {
                     method: 'POST',
                     headers: {
@@ -68,6 +70,6 @@ export default class TeqFw_Web_Api_Front_Mod_Connect {
                 modState.stopActivity();
             }
             return result;
-        }
+        };
     }
 }

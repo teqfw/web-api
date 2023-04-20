@@ -7,16 +7,13 @@
   },
   "@teqfw/web": {
     "handlers": {
-      "TeqFw_Web_Api_Back_Mod_Server_Handler": {
+      "TeqFw_Web_Api_Back_Web_Handler_Service": {
         "before": ["TeqFw_Web_Back_App_Server_Handler_Static"],
-        "spaces": ["api"]
+        "spaces": ["web-api-service"]
       }
     }
   },
   "@teqfw/web-api": {
-    "services": [
-      "TeqFw_Web_Api_Back_WAPI_Front_Log_Collect",
-      "TeqFw_Web_Api_Back_WAPI_Front_Register"
-    ]
+    "services": []
   }
 }

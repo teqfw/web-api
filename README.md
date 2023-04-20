@@ -20,7 +20,7 @@ This plugin uses `TeqFw_Web_Api` namespace.
 
 ## `teqfw.json`
 
-[DTO](src/Back/Dto/Plugin/Desc.mjs) for `@teqfw/web-api` nodes in `teq`-plugins descriptors.
+[DTO](src/Back/Plugin/Dto/Desc.mjs) for `@teqfw/web-api` nodes in `teq`-plugins descriptors.
 
 ```json
 {

@@ -1,6 +1,7 @@
 /**
  * Interface for service factory used in 'TeqFw_Web_Back_Plugin_Web_Handler_Service'.
  * @interface
+ * @deprecated use TeqFw_Web_Api_Back_Api_Service
  */
 export default class TeqFw_Web_Api_Back_Api_Factory_IService {
     /**

@@ -35,8 +35,8 @@ export default class TeqFw_Web_Api_Back_Mod_Server_Handler {
         const respond500 = spec['TeqFw_Web_Back_App_Server_Respond.respond500'];
         /** @type {TeqFw_Core_Back_Mod_Init_Plugin_Registry} */
         const regPlugins = spec['TeqFw_Core_Back_Mod_Init_Plugin_Registry$'];
-        /** @type {TeqFw_Web_Api_Back_Dto_Plugin_Desc} */
-        const dtoDesc = spec['TeqFw_Web_Api_Back_Dto_Plugin_Desc$'];
+        /** @type {TeqFw_Web_Api_Back_Plugin_Dto_Desc} */
+        const dtoDesc = spec['TeqFw_Web_Api_Back_Plugin_Dto_Desc$'];
         /** @type {TeqFw_Web_Api_Back_Dto_Service} */
         const dtoService = spec['TeqFw_Web_Api_Back_Dto_Service$'];
         /** @type {TeqFw_Web_Api_Back_Fact_Request_Context.create|function} */
@@ -83,7 +83,7 @@ export default class TeqFw_Web_Api_Back_Mod_Server_Handler {
             if (!res.headersSent && !shares[DEF.MOD_WEB.SHARE_RES_STATUS]) {
                 /** @type {TeqFw_Web_Back_Dto_Address} */
                 const address = mAddress.parsePath(req.url);
-                if (address?.space === DEF.SHARED.SPACE_API) {
+                if (address?.space === DEF.SHARED.SPACE_SERVICE) {
                     // match address to route item and extract route params
                     const {
                         /** @type {TeqFw_Web_Api_Back_Dto_Service.Dto} */
@@ -155,7 +155,7 @@ export default class TeqFw_Web_Api_Back_Mod_Server_Handler {
         this.canProcess = function ({method, address} = {}) {
             return (
                 ((method === HTTP2_METHOD_GET) || (method === HTTP2_METHOD_POST))
-                && (address?.space === DEF.SHARED.SPACE_API)
+                && (address?.space === DEF.SHARED.SPACE_SERVICE)
             );
         }
 

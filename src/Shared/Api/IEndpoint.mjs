@@ -1,6 +1,7 @@
 /**
  * Endpoint object creates requests and responses DTOs and provides route's address.
  * @interface
+ * @deprecated use TeqFw_Web_Api_Shared_Api_Endpoint
  */
 export default class TeqFw_Web_Api_Shared_Api_IEndpoint {
     /**
