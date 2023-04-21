@@ -12,8 +12,5 @@
         "spaces": ["web-api-service"]
       }
     }
-  },
-  "@teqfw/web-api": {
-    "services": []
   }
 }
