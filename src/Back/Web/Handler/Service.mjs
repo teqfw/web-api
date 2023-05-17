@@ -81,7 +81,7 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
                         res.setHeader(HTTP2_HEADER_CONTENT_TYPE, 'application/json');
                         shares[DEF.MOD_WEB.SHARE_RES_STATUS] = HTTP_STATUS_OK;
                     } catch (e) {
-                        logger.error(e);
+                        logger.error(`Error in service '${serviceName}': ${e}`);
                         respond500(res, e?.message);
                     }
                 }
@@ -119,7 +119,7 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
                     }
                 }
             } catch (e) {
-                logger.error(e);
+                logger.error(`Services initialization error: ${e}`);
             }
         };
 
