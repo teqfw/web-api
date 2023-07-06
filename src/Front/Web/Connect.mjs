@@ -55,6 +55,7 @@ export default class TeqFw_Web_Api_Front_Web_Connect {
                 // endpoint name is a route: App_Shared_Web_Api_Endpoint
                 const route = endpoint.constructor.name;
                 const URL = `${getBaseUrl()}/${route}`;
+                /** @type {Response} */
                 const res = await fetch(URL, {
                     method: 'POST',
                     headers: {
@@ -63,8 +64,9 @@ export default class TeqFw_Web_Api_Front_Web_Connect {
                     body: JSON.stringify(req)
                 });
                 try {
+                    const text = await res.text();
                     /** @type {TeqFw_Web_Api_Shared_Api_Response} */
-                    const json = await res.json();
+                    const json = JSON.parse(text);
                     if (!json.error) return endpoint.createRes(json.data);
                     else errHndl.error(json.error);
                 } catch (e) {
