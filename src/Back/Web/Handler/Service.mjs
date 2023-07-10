@@ -71,7 +71,9 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
                     try {
                         const one = services[serviceName];
                         const endpoint = one.getEndpoint();
-                        const apiReq = endpoint.createReq(json?.data);
+                        // WORKAROUND: own services use {data, meta} structure in req, reqs for other services go as is
+                        const data = json?.data ?? json;
+                        const apiReq = endpoint.createReq(data);
                         const apiRes = endpoint.createRes();
                         const context = new Context();
                         context.request = req;
