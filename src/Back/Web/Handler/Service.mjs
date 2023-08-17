@@ -19,23 +19,25 @@ const {
  * @implements TeqFw_Web_Back_Api_Dispatcher_IHandler
  */
 export default class TeqFw_Web_Api_Back_Web_Handler_Service {
-    constructor(spec) {
-        // DEPS
-        /** @type {TeqFw_Web_Api_Back_Defaults} */
-        const DEF = spec['TeqFw_Web_Api_Back_Defaults$'];
-        /** @type {TeqFw_Di_Shared_Container} */
-        const container = spec['TeqFw_Di_Shared_Container$'];
-        /** @type {TeqFw_Core_Shared_Api_Logger} */
-        const logger = spec['TeqFw_Core_Shared_Api_Logger$$']; // instance
-        /** @type {TeqFw_Web_Back_App_Server_Respond.respond500|function} */
-        const respond500 = spec['TeqFw_Web_Back_App_Server_Respond.respond500'];
-        /** @type {TeqFw_Core_Back_Mod_Init_Plugin_Registry} */
-        const regPlugins = spec['TeqFw_Core_Back_Mod_Init_Plugin_Registry$'];
-        /** @type {TeqFw_Web_Back_Mod_Address} */
-        const modAddress = spec['TeqFw_Web_Back_Mod_Address$'];
-        /** @type {typeof TeqFw_Web_Api_Back_Api_Service_Context} */
-        const Context = spec['TeqFw_Web_Api_Back_Api_Service_Context#'];
-
+    /**
+     * @param {TeqFw_Web_Api_Back_Defaults} DEF
+     * @param {TeqFw_Di_Shared_Container} container
+     * @param {TeqFw_Core_Shared_Api_Logger} logger -  instance
+     * @param {TeqFw_Web_Back_App_Server_Respond.respond500|function} respond500
+     * @param {TeqFw_Core_Back_Mod_Init_Plugin_Registry} regPlugins
+     * @param {TeqFw_Web_Back_Mod_Address} modAddress
+     * @param {typeof TeqFw_Web_Api_Back_Api_Service_Context} Context
+     */
+    constructor(
+        {
+              TeqFw_Web_Api_Back_Defaults$: DEF,
+              TeqFw_Di_Shared_Container$: container,
+              TeqFw_Core_Shared_Api_Logger$$: logger,
+              ['TeqFw_Web_Back_App_Server_Respond.respond500']: respond500,
+              TeqFw_Core_Back_Mod_Init_Plugin_Registry$: regPlugins,
+              TeqFw_Web_Back_Mod_Address$: modAddress,
+              ['TeqFw_Web_Api_Back_Api_Service_Context#']: Context,
+}) {
         // MAIN
         logger.setNamespace(this.constructor.name);
         const DESC_API = DEF.SHARED.NAME;

@@ -5,19 +5,21 @@
  */
 // MODULE'S CLASSES
 export default class TeqFw_Web_Api_Front_Web_Connect {
-    constructor(spec) {
-        // DEPS
-        /** @type {TeqFw_Web_Api_Front_Defaults} */
-        const DEF = spec['TeqFw_Web_Api_Front_Defaults$'];
-        /** @type {TeqFw_Web_Front_Api_Gate_IErrorHandler} */
-        const errHndl = spec['TeqFw_Web_Front_Api_Gate_IErrorHandler$'];
-        /** @type {TeqFw_Web_Front_Api_Mod_Server_Connect_IState} */
-        const state = spec['TeqFw_Web_Front_Api_Mod_Server_Connect_IState$'];
-        /** @type {TeqFw_Web_Front_Mod_Config} */
-        const modCfg = spec['TeqFw_Web_Front_Mod_Config$'];
-        /** @type {typeof TeqFw_Web_Api_Shared_Api_Request} */
-        const Request = spec['TeqFw_Web_Api_Shared_Api_Request#'];
-
+    /**
+     * @param {TeqFw_Web_Api_Front_Defaults} DEF
+     * @param {TeqFw_Web_Front_Api_Gate_IErrorHandler} errHndl
+     * @param {TeqFw_Web_Front_Api_Mod_Server_Connect_IState} state
+     * @param {TeqFw_Web_Front_Mod_Config} modCfg
+     * @param {typeof TeqFw_Web_Api_Shared_Api_Request} Request
+     */
+    constructor(
+        {
+              TeqFw_Web_Api_Front_Defaults$: DEF,
+              TeqFw_Web_Front_Api_Gate_IErrorHandler$: errHndl,
+              TeqFw_Web_Front_Api_Mod_Server_Connect_IState$: state,
+              TeqFw_Web_Front_Mod_Config$: modCfg,
+              ['TeqFw_Web_Api_Shared_Api_Request#']: Request,
+}) {
         // VARS
         let BASE;
 
