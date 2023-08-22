@@ -20,24 +20,25 @@ const {
  */
 export default class TeqFw_Web_Api_Back_Web_Handler_Service {
     /**
-     * @param {TeqFw_Web_Api_Back_Defaults} DEF
      * @param {TeqFw_Di_Shared_Container} container
+     * @param {TeqFw_Web_Api_Back_Defaults} DEF
      * @param {TeqFw_Core_Shared_Api_Logger} logger -  instance
      * @param {TeqFw_Web_Back_App_Server_Respond.respond500|function} respond500
-     * @param {TeqFw_Core_Back_Mod_Init_Plugin_Registry} regPlugins
+     * @param {TeqFw_Core_Back_Api_Plugin_Registry} regPlugins
      * @param {TeqFw_Web_Back_Mod_Address} modAddress
      * @param {typeof TeqFw_Web_Api_Back_Api_Service_Context} Context
      */
     constructor(
         {
-              TeqFw_Web_Api_Back_Defaults$: DEF,
-              TeqFw_Di_Shared_Container$: container,
-              TeqFw_Core_Shared_Api_Logger$$: logger,
-              ['TeqFw_Web_Back_App_Server_Respond.respond500']: respond500,
-              TeqFw_Core_Back_Mod_Init_Plugin_Registry$: regPlugins,
-              TeqFw_Web_Back_Mod_Address$: modAddress,
-              ['TeqFw_Web_Api_Back_Api_Service_Context#']: Context,
-}) {
+            container,
+            TeqFw_Web_Api_Back_Defaults$: DEF,
+            TeqFw_Core_Shared_Api_Logger$$: logger,
+            ['TeqFw_Web_Back_App_Server_Respond.respond500']: respond500,
+            TeqFw_Core_Back_Api_Plugin_Registry$: regPlugins,
+            TeqFw_Web_Back_Mod_Address$: modAddress,
+            ['TeqFw_Web_Api_Back_Api_Service_Context#']: Context,
+        }
+    ) {
         // MAIN
         logger.setNamespace(this.constructor.name);
         const DESC_API = DEF.SHARED.NAME;
