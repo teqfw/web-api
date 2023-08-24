@@ -1,6 +1,6 @@
 {
   "name": "@teqfw/web-api",
-  "version": "0.2.0",
+  "version": "0.20.0",
   "description": "TeqFW: synchronous requests to backend services in teq-apps.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +26,6 @@
   },
   "homepage": "https://github.com/teqfw/web-api#readme",
   "dependencies": {
-    "@teqfw/web": "*"
+    "@teqfw/web": "latest"
   }
 }
