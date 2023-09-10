@@ -40,7 +40,6 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
         }
     ) {
         // MAIN
-        logger.setNamespace(this.constructor.name);
         const DESC_API = DEF.SHARED.NAME;
         /** @type {Object<string, TeqFw_Web_Api_Back_Api_Service>} */
         const services = {};
