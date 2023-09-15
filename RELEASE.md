@@ -1,5 +1,9 @@
 # @teqfw/web-api: releases
 
+## 0.20.1
+
+* The logger initialization is moved to the post-processor.
+
 ## 0.20.0
 
 * These changes are related to the new architecture of the `@teqfw/di` package.
