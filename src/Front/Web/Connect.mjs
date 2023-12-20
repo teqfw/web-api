@@ -46,7 +46,7 @@ export default class TeqFw_Web_Api_Front_Web_Connect {
          * @param {Object} data JS-object to be sent as request
          * @param {TeqFw_Web_Api_Shared_Api_Endpoint} endpoint
          * @param {Object} [opts] TODO: use it or remove it
-         * @returns {Promise<Object>}
+         * @returns {Promise<*>}
          */
         this.send = async function (data, endpoint, opts = null) {
             // start displaying a network activity led on UI
