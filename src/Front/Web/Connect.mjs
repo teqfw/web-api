@@ -49,6 +49,7 @@ export default class TeqFw_Web_Api_Front_Web_Connect {
          * @returns {Promise<*>}
          */
         this.send = async function (data, endpoint, opts = null) {
+            // TODO: we need to have pre & post processing of the request/response
             // start displaying a network activity led on UI
             state.startActivity();
             try {
