@@ -1,12 +1,23 @@
 # @teqfw/web-api
 
-TeqFW plugin to use synchronous requests to backend services in teq-apps.
+## Disclaimer
 
-| CAUTION: TeqFW is an unstable, fast-growing project w/o backward compatibility. Use it at your own risk. |
-| -------------------------------------------------------------------------------------------------------- |
+This package is a part of the [Tequila Framework](https://flancer32.com/what-is-teqfw-f84ab4c66abf) (TeqFW). The TeqFW
+is currently in an early stage of development and should be considered unstable. It may change rapidly, leading to
+breaking changes without prior notice. Use it at your own risk. Please note that contributions to the project are
+welcome, but they should only be made by those who understand and accept the risks of working with an unstable
+framework.
+
+## Overview
+
+TeqFW plugin to use synchronous requests to backend services in teq-apps.
 
 This `teq`-plugin contains web requests handler that processes synchronous POST/GET requests with JSON payload to
 backend services (like regular REST).
+
+### Namespace
+
+This plugin uses `TeqFw_Web_Api` namespace.
 
 ## Install
 
