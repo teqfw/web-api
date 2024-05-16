@@ -66,7 +66,8 @@ export default class TeqFw_Web_Api_Front_Web_Connect {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(req)
+                    body: JSON.stringify(req),
+                    // TODO: add timeout here
                 });
                 if ((res.status >= 200) && (res.status < 300)) {
                     try {
