@@ -1,25 +1,27 @@
 /**
- * Common gateway to Web API services.
+ * Common gateway to send requests to the Web API services.
  *
- * @namespace TeqFw_Web_Api_Front_Web_Connect
+ * @TeqFw_Web_Api_Front_Api_Request_Alert TeqFw_Web_Api_Front_Web_Connect
  */
-// MODULE'S CLASSES
 export default class TeqFw_Web_Api_Front_Web_Connect {
     /**
      * @param {TeqFw_Web_Api_Front_Defaults} DEF
      * @param {TeqFw_Web_Front_Api_Gate_IErrorHandler} errHndl
+     * @param {TeqFw_Web_Api_Front_Api_Request_Alert} errAlert
      * @param {TeqFw_Web_Front_Api_Mod_Server_Connect_IState} state
      * @param {TeqFw_Web_Front_Mod_Config} modCfg
      * @param {typeof TeqFw_Web_Api_Shared_Api_Request} Request
      */
     constructor(
         {
-              TeqFw_Web_Api_Front_Defaults$: DEF,
-              TeqFw_Web_Front_Api_Gate_IErrorHandler$: errHndl,
-              TeqFw_Web_Front_Api_Mod_Server_Connect_IState$: state,
-              TeqFw_Web_Front_Mod_Config$: modCfg,
-              ['TeqFw_Web_Api_Shared_Api_Request#']: Request,
-}) {
+            TeqFw_Web_Api_Front_Defaults$: DEF,
+            TeqFw_Web_Front_Api_Gate_IErrorHandler$: errHndl,
+            TeqFw_Web_Api_Front_Api_Request_Alert$: errAlert,
+            TeqFw_Web_Front_Api_Mod_Server_Connect_IState$: state,
+            TeqFw_Web_Front_Mod_Config$: modCfg,
+            ['TeqFw_Web_Api_Shared_Api_Request#']: Request,
+        }
+    ) {
         // VARS
         let BASE;
 
@@ -49,11 +51,11 @@ export default class TeqFw_Web_Api_Front_Web_Connect {
          * @returns {Promise<*>}
          */
         this.send = async function (data, endpoint, opts = null) {
-            // TODO: we need to have pre & post processing of the request/response
             // start displaying a network activity led on UI
             state.startActivity();
+            const req = new Request();
+            // TODO: we need to have pre & post processing of the request/response
             try {
-                const req = new Request();
                 req.data = data;
                 // endpoint name is a route: App_Shared_Web_Api_Endpoint
                 const route = endpoint.constructor.name;
@@ -66,14 +68,19 @@ export default class TeqFw_Web_Api_Front_Web_Connect {
                     },
                     body: JSON.stringify(req)
                 });
-                try {
-                    const text = await res.text();
-                    /** @type {TeqFw_Web_Api_Shared_Api_Response} */
-                    const json = JSON.parse(text);
-                    if (!json.error) return endpoint.createRes(json.data);
-                    else errHndl.error(json.error);
-                } catch (e) {
-                    errHndl.error(e);
+                if ((res.status >= 200) && (res.status < 300)) {
+                    try {
+                        const text = await res.text();
+                        /** @type {TeqFw_Web_Api_Shared_Api_Response} */
+                        const json = JSON.parse(text);
+                        if (!json.error) return endpoint.createRes(json.data);
+                        else errHndl.error(json.error);
+                    } catch (e) {
+                        errHndl.error(e);
+                    }
+                } else {
+                    const msg = `The wrong HTTP status of the response: ${res.status}.`;
+                    errAlert.error(msg, req, res);
                 }
             } catch (e) {
                 errHndl.error(e);

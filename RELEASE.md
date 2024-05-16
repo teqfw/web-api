@@ -1,5 +1,9 @@
 # @teqfw/web-api: releases
 
+## 0.21.0 - TODO
+
+* `TeqFw_Web_Api_Front_Api_Request_Alert` is added.
+
 ## 0.20.1
 
 * The logger initialization is moved to the post-processor.
