@@ -81,9 +81,12 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
                         context.request = req;
                         context.response = res;
                         await one.process(apiReq, apiRes, context);
-                        shares[DEF.MOD_WEB.SHARE_RES_BODY] = JSON.stringify({data: apiRes});
-                        res.setHeader(HTTP2_HEADER_CONTENT_TYPE, 'application/json');
-                        shares[DEF.MOD_WEB.SHARE_RES_STATUS] = HTTP_STATUS_OK;
+                        if ((!res.statusCode) || (res.statusCode === HTTP_STATUS_OK)) {
+                            // Add JSON result if there were no errors in the handler (status=403, etc.)
+                            shares[DEF.MOD_WEB.SHARE_RES_BODY] = JSON.stringify({data: apiRes});
+                            res.setHeader(HTTP2_HEADER_CONTENT_TYPE, 'application/json');
+                            shares[DEF.MOD_WEB.SHARE_RES_STATUS] = HTTP_STATUS_OK;
+                        }
                     } catch (e) {
                         logger.error(`Error in service '${serviceName}': ${e}`);
                         respond500(res, e?.message);

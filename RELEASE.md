@@ -3,6 +3,7 @@
 ## 0.21.0 - TODO
 
 * `TeqFw_Web_Api_Front_Api_Request_Alert` is added.
+* Don't add the response body if HTTP status code != 200.
 
 ## 0.20.1
 
