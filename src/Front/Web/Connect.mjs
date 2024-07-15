@@ -63,6 +63,7 @@ export default class TeqFw_Web_Api_Front_Web_Connect {
                 /** @type {Response} */
                 const res = await fetch(URL, {
                     method: 'POST',
+                    credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json'
                     },
