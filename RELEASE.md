@@ -1,9 +1,10 @@
 # @teqfw/web-api: releases
 
-## 0.21.0 - TODO
+## 0.21.0
 
 * `TeqFw_Web_Api_Front_Api_Request_Alert` is added.
 * Don't add the response body if HTTP status code != 200.
+* Remove the legacy format for depIds.
 
 ## 0.20.1
 
