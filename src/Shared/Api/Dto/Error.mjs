@@ -25,8 +25,9 @@ export default class TeqFw_Web_Api_Shared_Api_Dto_Error {
      */
     constructor(
         {
-              ['TeqFw_Core_Shared_Util_Cast.castString']: castString,
-}) {
+            'TeqFw_Core_Shared_Util_Cast.castString': castString,
+        }
+    ) {
         /**
          * @param {TeqFw_Web_Api_Shared_Api_Dto_Error.Dto} [data]
          * @return {TeqFw_Web_Api_Shared_Api_Dto_Error.Dto}

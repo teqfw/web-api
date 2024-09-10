@@ -19,7 +19,7 @@ export default class TeqFw_Web_Api_Front_Web_Connect {
             TeqFw_Web_Api_Front_Api_Request_Alert$: errAlert,
             TeqFw_Web_Front_Api_Mod_Server_Connect_IState$: state,
             TeqFw_Web_Front_Mod_Config$: modCfg,
-            ['TeqFw_Web_Api_Shared_Api_Request#']: Request,
+            'TeqFw_Web_Api_Shared_Api_Request.default': Request,
         }
     ) {
         // VARS

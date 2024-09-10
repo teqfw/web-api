@@ -24,7 +24,7 @@ export default class TeqFw_Web_Api_Back_Plugin_Dto_Desc {
      */
     constructor(
         {
-              ['TeqFw_Core_Shared_Util_Cast.castArrayOfStr']: castArrayOfStr,
+            'TeqFw_Core_Shared_Util_Cast.castArrayOfStr': castArrayOfStr,
 }) {
         // INSTANCE METHODS
         /**
