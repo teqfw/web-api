@@ -71,6 +71,7 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
                 const serviceName = getServiceName(req);
                 if (services[serviceName]) {
                     try {
+                        logger.info(`Endpoint '${serviceName}' has been requested.`);
                         const one = services[serviceName];
                         const endpoint = one.getEndpoint();
                         // WORKAROUND: own services use {data, meta} structure in req, reqs for other services go as is
