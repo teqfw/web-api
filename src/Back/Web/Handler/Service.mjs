@@ -23,7 +23,7 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
      * @param {TeqFw_Di_Api_Container} container
      * @param {TeqFw_Web_Api_Back_Defaults} DEF
      * @param {TeqFw_Core_Shared_Api_Logger} logger -  instance
-     * @param {TeqFw_Web_Back_App_Server_Respond.respond500|function} respond500
+     * @param {TeqFw_Web_Back_Help_Respond} respond
      * @param {TeqFw_Core_Back_Api_Plugin_Registry} regPlugins
      * @param {TeqFw_Web_Back_Mod_Address} modAddress
      * @param {typeof TeqFw_Web_Api_Back_Api_Service_Context} Context
@@ -33,7 +33,7 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
             container,
             TeqFw_Web_Api_Back_Defaults$: DEF,
             TeqFw_Core_Shared_Api_Logger$$: logger,
-            'TeqFw_Web_Back_App_Server_Respond.respond500': respond500,
+            TeqFw_Web_Back_Help_Respond$: respond,
             TeqFw_Core_Back_Api_Plugin_Registry$: regPlugins,
             TeqFw_Web_Back_Mod_Address$: modAddress,
             'TeqFw_Web_Api_Back_Api_Service_Context.default': Context,
@@ -90,7 +90,7 @@ export default class TeqFw_Web_Api_Back_Web_Handler_Service {
                         }
                     } catch (e) {
                         logger.error(`Error in service '${serviceName}': ${e}`);
-                        respond500(res, e?.message);
+                        respond.code500_InternalServerError({res, body: e?.message});
                     }
                 }
 
