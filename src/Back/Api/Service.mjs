@@ -7,12 +7,12 @@ export default class TeqFw_Web_Api_Back_Api_Service {
      * Endpoint to create DTOs for request & response for API service.
      * @returns {TeqFw_Web_Api_Shared_Api_Endpoint}
      */
-    getEndpoint();
+    getEndpoint() {}
 
     /**
      * Optional method to initialize server on startup.
      */
-    async init();
+    async init() {}
 
     /**
      * Process API request
@@ -20,5 +20,5 @@ export default class TeqFw_Web_Api_Back_Api_Service {
      * @param {*} res
      * @param {TeqFw_Web_Api_Back_Api_Service_Context} context
      */
-    async process(req, res, context);
+    async process(req, res, context) {}
 }
