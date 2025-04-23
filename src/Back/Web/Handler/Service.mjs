@@ -20,7 +20,7 @@ const {
  */
 export default class TeqFw_Web_Api_Back_Web_Handler_Service {
     /**
-     * @param {TeqFw_Di_Api_Container} container
+     * @param {TeqFw_Di_Container} container
      * @param {TeqFw_Web_Api_Back_Defaults} DEF
      * @param {TeqFw_Core_Shared_Api_Logger} logger -  instance
      * @param {TeqFw_Web_Back_Help_Respond} respond
